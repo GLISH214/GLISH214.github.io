@@ -9,20 +9,22 @@
             let nameInput = document.getElementById("isName");
             alert(nameInput.value);
         }
-         function addNumbers() {
+
+        function addNumbers() {
             let num1 = Number(document.getElementById("num1").value);
             let num2 = Number(document.getElementById("num2").value);
-            let sum = num1 + num2;
-            alert(sum);
+            let sum = num1 + num2; // ✅ This was missing
+            document.getElementById("dvresult").innerHTML = "Sum is: " + sum;
         }
     </script>
 </head>
 <body>
     <input type="text" id="isName">
-    <button onclick="greet()" style="color: brown;">CLICK</button><br>
+    <button onclick="greet()" style="color: brown;">CLICK</button><br><br>
+
     <input type="text" id="num1">
     <input type="text" id="num2">
     <button onclick="addNumbers()" style="color: brown;">CLICK</button>
-
+    <div id="dvresult"></div>
 </body>
 </html>
