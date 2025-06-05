@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Assignemnt 3</title>
     <script>
         function greet() {
             let nameInput = document.getElementById("isName");
@@ -11,20 +11,20 @@
         }
 
         function addNumbers() {
-            let num1 = Number(document.getElementById("num1").value);
-            let num2 = Number(document.getElementById("num2").value);
-            let sum = num1 + num2; 
-            document.getElementById("dvresult").innerHTML = "Sum is: " + sum;
+            let p = Number(num1.value);
+            let q = Number(num2.value);
+           dvresult.innerHTML = p+q;
         }
     </script>
 </head>
 <body>
+    <h1>ASSIGNMENT 3</h1>
     <input type="text" id="isName">
     <button onclick="greet()" style="color: brown;">CLICK</button><br><br>
 
     <input type="text" id="num1">
     <input type="text" id="num2">
-    <button onclick="addNumbers()" style="color: brown;">CLICK</button>
+    <button onclick="addNumbers()" style="color: brown;">ADD</button>
     <div id="dvresult"></div>
 </body>
 </html>
