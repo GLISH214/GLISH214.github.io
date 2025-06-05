@@ -5,36 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignemnt 4</title>
     <script>
-        function add(){
-           let a = Number(n1.value);
-           let b = Number(n2.value);
-           dvres.innerHTML = a+b;
+      const calc = (n1,n2) =>{
+         let a = Number(n1.value);
+         let b = Number(n2.value);
+
+         dvres.innerHTML =
+         "Addition: " + a +" + "+ b + " = " + add(a, b) + "<br>" +
+         "Subtraction: " + a +" - "+ b + " = " + sub(a, b) + "<br>" +
+         "Multiplication: " + a +" * "+ b + " = " + mult(a, b) + "<br>" +
+         "Division: " + a +" / "+ b + " = " + div(a, b);
+      }
+        function add(n1,n2){
+           return n1+n2;
         }
-        function sub(){
-          let a = Number(n1.value);
-          let b = Number(n2.value);
-           dvres.innerHTML = a - b;
+        function sub(n1,n2){
+          return n1-n2;
         }
-        function mult(){
-           let a = Number(n1.value);
-           let b = Number(n2.value);
-           dvres.innerHTML = a * b;
+        function mult(n1,n2){
+           return n1*n2;
         }
-        function div(){
-           let a = Number(n1.value);
-           let b = Number(n2.value);
-           dvres.innerHTML = a / b;
+        function div(n1,n2){
+         return n2 !== 0 ? n1 / n2 : "Cannot divide by 0";
         }
     </script>
 </head>
 <body>
-    <h1>ASSIGNMENT 4</h1>
+    <h2>CALCULATOR</h2>
     <input type="text" id="n1">
     <input type="text" id="n2">
-    <button onclick="add()" style="color: bisque; backgroundcolor:brown;">ADD</button>
-    <button onclick="sub()" style="color: bisque; backgroundcolor:brown;">SUB</button>
-    <button onclick="mult()" style="color:bisque; backgroundcolor: brown;">MUL</button>
-    <button onclick="div()" style="color: bisque; backgroundcolor:brown;">DIV</button>
-    <div id="dvres"></div>
+    <button onclick="calc(n1,n2)" style="color:bisque; background-color:brown;">CALC!!</button>
+    
+    <div id="dvres" style="font-family: monospace;"></div>
 </body>
 </html>

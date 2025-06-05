@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function print(n, mail,pwd){
+        dvres.innerHTML = "Name: " + n.value + "<br>" +
+        "Email: " + mail.value + "<br>" +
+        "Password: " + pwd.value;
+        }
+    </script>
+</head>
+<body>
+    <h2>Assignemnt 5</h2>
+    <input type="text" id="n" style="display: block; margin:7px">
+    <input type="email" id="mail"style="display: block;margin:7px">
+    <input type="password" id="pwd"style="display: block;margin:7px">
+    <button onclick="print(n,mail,pwd)" style="background-color: brown;color:bisque; margin:7px">SUBMIT</button>
+    <div id="dvres" style="font-family: monospace;"></div>
+
+</body>
+</html>
