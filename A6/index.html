@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <style>
+    body {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: brown;
+      color: bisque;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 5px 0;
+      font-size: 18px;
+    }
+  </style>
+  <script>
+    let fruits = [];
+
+    function addFruit() {
+      let input = document.getElementById("fruitInput");
+      let fruit = input.value.trim();
+
+      if (fruit) {
+        fruits.push(fruit);
+        showFruits();
+        input.value = "";
+      }
+    }
+
+    function showFruits() {
+      let list = document.getElementById("fruitList");
+      list.innerHTML = "";
+
+      for (let f of fruits) {
+        let li = document.createElement("li");
+        li.textContent = f;
+        list.appendChild(li);
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <h1>FRUIT LIST</h1>
+  <div>
+    <input type="text" id="fruitInput" placeholder="Enter fruit name">
+    <button onclick="addFruit()">ADD</button>
+  </div>
+  <ul id="fruitList"></ul>
+
+</body>
+</html>
