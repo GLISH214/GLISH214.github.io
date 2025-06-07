@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fruit List</title>
+  <style>
+    body {
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .input-section {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    input {
+      padding: 8px;
+      font-size: 16px;
+      width: 200px;
+    }
+
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: brown;
+      color: bisque;
+      cursor: pointer;
+      border-radius: 4px;
+      border: none;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 6px 0;
+      font-size: 18px;
+    }
+
+    .delete-btn {
+      margin-left: 10px;
+      padding: 4px 10px;
+      font-size: 14px;
+      background-color: brown;
+      color: bisque;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>FRUIT LIST</h1>
+
+  <div class="input-section">
+    <input type="text" id="txt1" placeholder="Enter or search fruit" />
+    <button onclick="add()">Add</button>
+    <button onclick="search()">Search</button>
+  </div>
+
+  <ul id="fruitList"></ul>
+
+  <script>
+    let fruits = [];
+    let filtered = [];
+
+    function add() {
+      const input = document.getElementById("txt1");
+      const value = input.value.trim();
+      if (value !== "") {
+        fruits.push(value);
+        filtered = fruits.slice();  
+        input.value = "";
+        dispFruits();
+      }
+    }
+
+    function search() {
+      const query = document.getElementById("txt1").value.trim().toLowerCase();
+      filtered = fruits.filter(fruit => fruit.toLowerCase().includes(query));
+      dispFruits();
+    }
+
+    function del(value) {
+      fruits = fruits.filter(fruit => fruit !== value);
+      filtered = fruits.slice();  // update filtered after delete
+      dispFruits();
+    }
+
+    function dispFruits() {
+      const listHTML = filtered
+        .map(fruit => `<li>${fruit}<button class="delete-btn" onclick="del('${fruit}')">Delete</button></li>`)
+        .join("");
+      document.getElementById("fruitList").innerHTML = listHTML;
+    }
+
+    filtered = fruits.slice();
+    dispFruits();
+  </script>
+
+</body>
+</html>
